@@ -2,6 +2,10 @@ import React, { useState } from "react";
 import "./styles.css";
 
 export default function App() {
+  const [koumokuText, setKoumokuText] = useState("");
+  const [tankaText, setTankaText] = useState("");
+  const [suuryouText, setSuuryouText] = useState("");
+  const [taniText, setTaniText] = useState("");
   const [price, setPrice] = useState([
     {
       koumoku: "企画費",
@@ -17,19 +21,52 @@ export default function App() {
     }
   ]);
 
+  const onChangeKoumokuText = (event) => setKoumokuText(event.target.value);
+  const onChangeTankaText = (event) => setTankaText(event.target.value);
+  const onChangeSuuryouText = (event) => setSuuryouText(event.target.value);
+  const onChangeTaniText = (event) => setTaniText(event.target.value);
+
+  const onClickAdd = () => {
+    const newPriceObject = {
+      koumoku: koumokuText,
+      tanka: tankaText,
+      suuryou: suuryouText,
+      tani: taniText
+    };
+
+    const newPrice = [...price, newPriceObject];
+    console.log(newPrice);
+  };
+
   return (
     <>
       <div className="input_erea">
-        <input placeholder="項目" />
-        <input placeholder="単価" />
-        <input placeholder="数量" />
-        <input placeholder="単位" />
-        <button>追加</button>
+        <input
+          placeholder="項目"
+          value={koumokuText}
+          onChange={onChangeKoumokuText}
+        />
+        <input
+          placeholder="単価"
+          value={tankaText}
+          onChange={onChangeTankaText}
+        />
+        <input
+          placeholder="数量"
+          value={suuryouText}
+          onChange={onChangeSuuryouText}
+        />
+        <input
+          placeholder="単位"
+          value={taniText}
+          onChange={onChangeTaniText}
+        />
+        <button onClick={onClickAdd}>追加</button>
       </div>
 
-      {price.map((s) => {
+      {price.map((s, index) => {
         return (
-          <div key={s}>
+          <div key={index}>
             <p>{s.koumoku}</p>
             <p>{s.tanka}</p>
             <p>{s.suuryou}</p>
