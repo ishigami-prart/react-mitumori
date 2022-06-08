@@ -11,13 +11,8 @@ export default function App() {
       koumoku: "企画費",
       tanka: "1000",
       suuryou: "3",
-      tani: "ページ"
-    },
-    {
-      koumoku: "デザイン費",
-      tanka: "1000",
-      suuryou: "3",
-      tani: "ページ"
+      tani: "ページ",
+      hiyou: ""
     }
   ]);
 
@@ -31,7 +26,8 @@ export default function App() {
       koumoku: koumokuText,
       tanka: tankaText,
       suuryou: suuryouText,
-      tani: taniText
+      tani: taniText,
+      hiyou: tankaText * suuryouText
     };
 
     const newPrice = [...price, newPriceObject];
@@ -72,11 +68,12 @@ export default function App() {
 
       {price.map((s, index) => {
         return (
-          <div key={index}>
+          <div key={index} className="mitumori_table">
             <p>{s.koumoku}</p>
             <p>{s.tanka}</p>
             <p>{s.suuryou}</p>
             <p>{s.tani}</p>
+            <p>{s.hiyou}</p>
           </div>
         );
       })}

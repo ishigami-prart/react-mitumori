@@ -2,3 +2,13 @@
   font-family: sans-serif;
   text-align: center;
 }
+
+.mitumori_table {
+  display: flex;
+}
+
+.mitumori_table p {
+  padding: 5px 20px;
+  margin: 0;
+  box-sizing: border-box;
+}
