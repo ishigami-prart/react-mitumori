@@ -35,7 +35,13 @@ export default function App() {
     };
 
     const newPrice = [...price, newPriceObject];
-    console.log(newPrice);
+    setPrice(newPrice);
+
+    //inputのリセット
+    setKoumokuText("");
+    setTankaText("");
+    setSuuryouText("");
+    setTaniText("");
   };
 
   return (
