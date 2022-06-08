@@ -18,7 +18,15 @@ export default function App() {
   ]);
 
   return (
-    <div className="App">
+    <>
+      <div className="input_erea">
+        <input placeholder="項目" />
+        <input placeholder="単価" />
+        <input placeholder="数量" />
+        <input placeholder="単位" />
+        <button>追加</button>
+      </div>
+
       {price.map((s) => {
         return (
           <div key={s}>
@@ -29,6 +37,6 @@ export default function App() {
           </div>
         );
       })}
-    </div>
+    </>
   );
 }
