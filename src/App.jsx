@@ -36,6 +36,7 @@ export default function App() {
 
     const newPrice = [...price, newPriceObject];
     setPrice(newPrice);
+    console.log(price);
 
     //inputのリセット
     setKoumokuText("");
@@ -43,6 +44,9 @@ export default function App() {
     setSuuryouText("");
     setTaniText("");
   };
+
+  const total = price.reduce((p, x) => p + x.goukei, 0);
+  console.log(total);
 
   return (
     <>
@@ -81,7 +85,7 @@ export default function App() {
           </div>
         );
       })}
-      <div className="ddd"></div>
+      <div className="ddd">{total}</div>
     </>
   );
 }
