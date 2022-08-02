@@ -12,14 +12,18 @@ export default function App() {
       tanka: "1000",
       suuryou: "3",
       tani: "ページ",
-      hiyou: ""
+      goukei: ""
     }
   ]);
 
   const onChangeKoumokuText = (event) => setKoumokuText(event.target.value);
   const onChangeTankaText = (event) => setTankaText(event.target.value);
-  const onChangeSuuryouText = (event) => setSuuryouText(event.target.value);
+  const onChangeSuuryouText = (event) => {
+    setSuuryouText(event.target.value);
+  };
   const onChangeTaniText = (event) => setTaniText(event.target.value);
+  console.log("単価" + tankaText);
+  console.log("数量" + suuryouText);
 
   const onClickAdd = () => {
     const newPriceObject = {
@@ -27,7 +31,7 @@ export default function App() {
       tanka: tankaText,
       suuryou: suuryouText,
       tani: taniText,
-      hiyou: tankaText * suuryouText
+      goukei: tankaText * suuryouText
     };
 
     const newPrice = [...price, newPriceObject];
@@ -73,7 +77,7 @@ export default function App() {
             <p>{s.tanka}</p>
             <p>{s.suuryou}</p>
             <p>{s.tani}</p>
-            <p>{s.hiyou}</p>
+            <p>{s.goukei}円</p>
           </div>
         );
       })}
